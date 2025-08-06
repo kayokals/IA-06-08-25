@@ -1,7 +1,7 @@
 const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-pergunta");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
-const caixaResultado = document.querySelector(".texto-resultado");
+const textoResultado = docment.querySelector(“.texto-resultado”);
 
 const perguntas = [
   {
@@ -79,9 +79,59 @@ let atual = 0;
  let perguntaAtual;
 
  function mostraPergunta(){
- perguntaAtual + perguntas [atual];
+ perguntaAtual = perguntas [atual];
  caixaPerguntas.textContent = perguntaAtual.enunciado;
+mostraAlternativas();
+}
 
-     }
-
+function mostraAlternativas(){
+for(const alternativa of perguntaAtual.alternativas){
+const botaoAlternativa = document.createElement("button");
+botaoAlternativa.textContent = alternativa.texto;
+botaoAlternativa.addEventListener("click", function(){
+atual++;
+mostraPergunta();
+})
+caixaAlternativas.appendChild(botaoAlternativa);
+    }
+}
 mostraPergunta()
+
+let atual = 0;
+let perguntaAtual;
+let historiaFinal; = ""; 
+
+function mostraPergunta(){
+if(atual >= perguntas.length) {
+mostraResultado();
+return;
+}
+perguntaAtual = perguntas [atual];
+caixaPerguntas.textContent = perguntaAtual.enunciado;
+caixaAlternativas.textContent = "";
+mostraAlternativas();
+}
+
+function mostraAlternativas (){
+}
+for(const alternativa of perguntaAtual.alternativas){
+const botaoAlternativa = document.createElement("button");
+botaoAlternativa.textContent = alternativa.texto;
+botaoAlternativa.addEventListener("click", () => respostaselecionada
+(alternativa));
+caixaAlternativas.appendChild(botaoAlternativa);
+}
+function respostaselecionada (opcaoSelecionada){
+const afirmacoes = opcaoSelecionada.afirmacao;
+historiaFinal += afirmacoes + " ";
+atual++;
+mostraPergunta();
+}
+
+function mostraResultado(){
+    caixaPerguntas.textContent = "Em 2049...";
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.textContent = "";
+}
+mostraPergunta()
+c
