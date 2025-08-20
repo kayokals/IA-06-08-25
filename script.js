@@ -1,7 +1,7 @@
 const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-pergunta");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
-const textoResultado = docment.querySelector(“.texto-resultado”);
+const textoResultado = docment.querySelector(".texto-resultado");
 
 const perguntas = [
   {
@@ -66,7 +66,7 @@ const perguntas = [
     alternativas: [
         {
             texto:  "Escrever comandos para o chat é uma forma de contribuir com o trabalho, por isso não é um problema utilizar o texto inteiro.",
-            afirmacao: "afirmacao"
+            afirmacao: "afirmacao" 
         },
         {
             texto: "O chat pode ser uma tecnologia muito avançada, mas é preciso manter a atenção pois toda máquina erra, por isso revisar o trabalho e contribuir com as perspectivas pessoais é essencial.",
@@ -75,8 +75,6 @@ const perguntas = [
     ]
   },
 ];
-let atual = 0;
- let perguntaAtual;
 
  function mostraPergunta(){
  perguntaAtual = perguntas [atual];
@@ -134,4 +132,3 @@ function mostraResultado(){
     caixaAlternativas.textContent = "";
 }
 mostraPergunta()
-c
